@@ -1,6 +1,5 @@
 <?php
-  $id = $_GET['id'];
-  echo $id;
+
 
 
 // echo phpinfo();
@@ -111,19 +110,18 @@ try {
 // if (!$result) {
 //   exit('データベースを選択できませんでした。');
 // }
-if(@$_POST["id"] != "" OR @$_POST["name"] != ""){ //IDおよびユーザー名の入力有無を確認
-    // $stmt = $pdo->query("SELECT * FROM questions WHERE ID='".$_POST["id"] ."' OR Name LIKE  '%".$_POST["name"]."%')"); //SQL文を実行して、結果を$stmtに代入する。
-    // $stmt = $dbh->query("SELECT * FROM 'questions' WHERE id='".$_POST["id"] ."' OR name LIKE  '%".$_POST["name"]."%')"); //SQL文を実行して、結果を$stmtに代入する。
-    // $result = $stmt->fetch();
-    // var_dump($result);
-}
-$stmt = $dbh->query("SELECT * FROM questions WHERE id LIKE '%" . $_POST["id"] . "%'");
-                // " SELECT * FROM contacts  WHERE id LIKE '%" . $_POST["search_name"] . "%' "
-$result = $stmt->fetchAll();
-var_dump($result);
+// if(@$_POST["id"] != "" OR @$_POST["name"] != ""){ //IDおよびユーザー名の入力有無を確認
+//     // $stmt = $pdo->query("SELECT * FROM questions WHERE ID='".$_POST["id"] ."' OR Name LIKE  '%".$_POST["name"]."%')"); //SQL文を実行して、結果を$stmtに代入する。
+//     // $stmt = $dbh->query("SELECT * FROM 'questions' WHERE id='".$_POST["id"] ."' OR name LIKE  '%".$_POST["name"]."%')"); //SQL文を実行して、結果を$stmtに代入する。
+//     // $result = $stmt->fetch();
+//     // var_dump($result);
+// }
+$stmt = $dbh->query("SELECT * FROM post_table,lang_post WHERE post_table.id=lang_post.post_id");
+// $result = $stmt->fetchAll();
+// var_dump($result);
 $result = var_dump($result);
 	
-echo $_SERVER['QUERY_STRING'];
+// echo $_SERVER['QUERY_STRING'];
 ?>
 
 <head>
